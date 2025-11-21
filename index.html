@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="NovaPulse governance vote landing page with token overview, stats, and demo activity feed for wallet-based voting."
+    />
+    <meta property="og:title" content="NovaPulse (NPX) governance vote" />
+    <meta
+      property="og:description"
+      content="Preview NovaPulse token details, voting stats, and the latest demo rewards feed before wallet connections go live."
+    />
+    <meta property="og:image" content="assets/token-logo.svg" />
+    <link rel="icon" href="assets/token-logo.svg" />
+    <title>NovaPulse Vote</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="assets/token-logo.svg" alt="NovaPulse logo" />
+        <div>
+          NovaPulse Vote
+          <div class="tag">Live community ballot</div>
+        </div>
+      </div>
+      <button class="connect" disabled aria-disabled="true" title="Wallet connection coming soon">
+        Connect wallet to vote
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="tag">Featured token</div>
+          <h1>NovaPulse (NPX) governance vote</h1>
+          <p>
+            NovaPulse is a next-gen L2 scaling token focused on lightning-fast settlement,
+            ultra-low fees, and a community-first rewards model. Cast your vote to signal
+            support and shape the token's launch roadmap.
+          </p>
+          <div class="hero-actions">
+            <div class="pill">Wallet connection required to vote</div>
+            <div class="pill">Voting window: 5 days left</div>
+          </div>
+        </div>
+        <img
+          src="assets/token-logo.svg"
+          alt="NovaPulse badge"
+          class="token-logo"
+          loading="lazy"
+        />
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <div class="card-header">
+            <img
+              src="assets/token-logo.svg"
+              alt="NovaPulse"
+              class="token-logo"
+              loading="lazy"
+            />
+            <div class="token-title">
+              <h2>NovaPulse</h2>
+              <div class="ticker">Ticker: NPX</div>
+            </div>
+          </div>
+          <p class="description">
+            NovaPulse combines zk-rollup security with a parallel execution engine, enabling
+            rapid confirmation finality and adaptive gas that rewards active voters and long-term
+            holders.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <div class="label">Total staked votes</div>
+              <div class="value">1,203,440 NPX</div>
+            </div>
+            <div class="stat">
+              <div class="label">Support</div>
+              <div class="value">92.4%</div>
+            </div>
+            <div class="stat">
+              <div class="label">Unique wallets</div>
+              <div class="value">4,182</div>
+            </div>
+            <div class="stat">
+              <div class="label">Voting ends</div>
+              <div class="value">Aug 12, 2024</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card vote-panel">
+          <h3>Cast your vote</h3>
+          <p class="description">
+            Connect your wallet to participate. Voting is weighted by the NPX balance you
+            stake for the duration of the vote.
+          </p>
+          <button disabled aria-disabled="true">👍 Yes — In favor of NovaPulse launch</button>
+          <button disabled aria-disabled="true">👎 No — Do not proceed</button>
+          <div class="note">Wallet connection is coming soon. Stay tuned.</div>
+        </article>
+      </section>
+
+      <section class="card">
+        <h3>Why NovaPulse?</h3>
+        <div class="timeline">
+          <div class="step">
+            <strong>Performance engineered</strong>
+            <div class="description">
+              Parallel rollup execution brings <strong>sub-second finality</strong> and consistent
+              fees even during peak NFT or DeFi activity.
+            </div>
+          </div>
+          <div class="step">
+            <strong>Community-aligned rewards</strong>
+            <div class="description">
+              Validator incentives are tied to voter participation, ensuring alignment between
+              governance power and ecosystem health.
+            </div>
+          </div>
+          <div class="step">
+            <strong>Security first</strong>
+            <div class="description">
+              ZK proofs secure every batch, while circuit audits and a rolling bug bounty keep the
+              protocol hardened against emerging threats.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card activity">
+        <div class="section-heading">
+          <h3>Latest voting rewards</h3>
+          <p class="description subtle">
+            Demo-only activity showing randomized wallets, votes, and SOL rewards. Live votes will
+            appear once wallet connections are enabled.
+          </p>
+        </div>
+        <ul id="activity-feed" class="activity-feed" aria-live="polite">
+          <li class="activity-row">
+            <div class="address">Gk7r...8k2p</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 2.8 SOL</div>
+            <div class="time">Just now</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">9QsX...Zr1d</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 1.4 SOL</div>
+            <div class="time">1m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">Dp4H...qv7G</div>
+            <div class="vote">voted No</div>
+            <div class="reward">Earned 0.6 SOL</div>
+            <div class="time">2m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">Fr9e...Lm3C</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 3.9 SOL</div>
+            <div class="time">3m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">7sKc...bh9T</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 0.9 SOL</div>
+            <div class="time">4m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">Hj2L...5aVx</div>
+            <div class="vote">voted No</div>
+            <div class="reward">Earned 2.6 SOL</div>
+            <div class="time">5m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">M8ac...ds9Q</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 1.0 SOL</div>
+            <div class="time">6m ago</div>
+          </li>
+        </ul>
+      </section>
+
+      <p class="footer">Wallet connection and live vote execution will be added soon.</p>
+    </main>
+    <script>
+      const base58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+      const activityFeed = document.getElementById("activity-feed");
+
+      function randomAddress(length = 44) {
+        let result = "";
+        for (let i = 0; i < length; i++) {
+          const char = base58[Math.floor(Math.random() * base58.length)];
+          result += char;
+        }
+        return result;
+      }
+
+      function randomSolReward() {
+        return (Math.random() * 3.8 + 0.2).toFixed(2);
+      }
+
+      function randomTimeLabel() {
+        const options = ["Just now", "30s ago", "1m ago", "2m ago", "3m ago", "5m ago", "8m ago", "12m ago"];
+        return options[Math.floor(Math.random() * options.length)];
+      }
+
+      function randomVoteChoice() {
+        return Math.random() > 0.2 ? "voted Yes" : "voted No";
+      }
+
+      function createActivityRow({ fresh = false } = {}) {
+        const li = document.createElement("li");
+        li.className = "activity-row";
+        const address = randomAddress();
+        const reward = randomSolReward();
+        const timeLabel = fresh ? "Just now" : randomTimeLabel();
+        li.innerHTML = `
+          <div class="address">${address.slice(0, 4)}...${address.slice(-4)}</div>
+          <div class="vote">${randomVoteChoice()}</div>
+          <div class="reward">Earned ${reward} SOL</div>
+          <div class="time">${timeLabel}</div>
+        `;
+        return li;
+      }
+
+      function seedActivity(count = 7) {
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < count; i++) {
+          fragment.appendChild(createActivityRow({ fresh: i === 0 }));
+        }
+        activityFeed.innerHTML = "";
+        activityFeed.appendChild(fragment);
+      }
+
+      function pushNewActivity() {
+        const newItem = createActivityRow({ fresh: true });
+        activityFeed.prepend(newItem);
+        while (activityFeed.children.length > 7) {
+          activityFeed.removeChild(activityFeed.lastElementChild);
+        }
+      }
+
+      function scheduleActivityUpdates() {
+        const delay = Math.floor(Math.random() * 2600) + 2400; // 2.4s - 5s
+        setTimeout(() => {
+          pushNewActivity();
+          scheduleActivityUpdates();
+        }, delay);
+      }
+
+      if (activityFeed) {
+        seedActivity();
+        pushNewActivity(); // ensure fresh, fake activity appears immediately
+        scheduleActivityUpdates();
+        window.addEventListener("focus", seedActivity);
+      }
+    </script>
+  </body>
+</html>
