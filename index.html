@@ -218,6 +218,7 @@
       }
 
       seedActivity();
+      pushNewActivity(); // ensure fresh, fake activity appears immediately
       scheduleActivityUpdates();
       window.addEventListener("focus", seedActivity);
     </script>
