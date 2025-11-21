@@ -146,14 +146,57 @@
             appear once wallet connections are enabled.
           </p>
         </div>
-        <ul id="activity-feed" class="activity-feed" aria-live="polite"></ul>
+        <ul id="activity-feed" class="activity-feed" aria-live="polite">
+          <li class="activity-row">
+            <div class="address">Gk7r...8k2p</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 2.8 SOL</div>
+            <div class="time">Just now</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">9QsX...Zr1d</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 1.4 SOL</div>
+            <div class="time">1m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">Dp4H...qv7G</div>
+            <div class="vote">voted No</div>
+            <div class="reward">Earned 0.6 SOL</div>
+            <div class="time">2m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">Fr9e...Lm3C</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 3.9 SOL</div>
+            <div class="time">3m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">7sKc...bh9T</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 0.9 SOL</div>
+            <div class="time">4m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">Hj2L...5aVx</div>
+            <div class="vote">voted No</div>
+            <div class="reward">Earned 2.6 SOL</div>
+            <div class="time">5m ago</div>
+          </li>
+          <li class="activity-row">
+            <div class="address">M8ac...ds9Q</div>
+            <div class="vote">voted Yes</div>
+            <div class="reward">Earned 1.0 SOL</div>
+            <div class="time">6m ago</div>
+          </li>
+        </ul>
       </section>
 
       <p class="footer">Wallet connection and live vote execution will be added soon.</p>
     </main>
     <script>
-      const activityFeed = document.getElementById("activity-feed");
       const base58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+      const activityFeed = document.getElementById("activity-feed");
 
       function randomAddress(length = 44) {
         let result = "";
@@ -168,9 +211,9 @@
         return (Math.random() * 3.8 + 0.2).toFixed(2);
       }
 
-      function randomMinutesAgo() {
-        const minutes = Math.floor(Math.random() * 58) + 2;
-        return `${minutes}m ago`;
+      function randomTimeLabel() {
+        const options = ["Just now", "30s ago", "1m ago", "2m ago", "3m ago", "5m ago", "8m ago", "12m ago"];
+        return options[Math.floor(Math.random() * options.length)];
       }
 
       function randomVoteChoice() {
@@ -182,7 +225,7 @@
         li.className = "activity-row";
         const address = randomAddress();
         const reward = randomSolReward();
-        const timeLabel = fresh ? "Just now" : randomMinutesAgo();
+        const timeLabel = fresh ? "Just now" : randomTimeLabel();
         li.innerHTML = `
           <div class="address">${address.slice(0, 4)}...${address.slice(-4)}</div>
           <div class="vote">${randomVoteChoice()}</div>
@@ -195,7 +238,7 @@
       function seedActivity(count = 7) {
         const fragment = document.createDocumentFragment();
         for (let i = 0; i < count; i++) {
-          fragment.appendChild(createActivityRow());
+          fragment.appendChild(createActivityRow({ fresh: i === 0 }));
         }
         activityFeed.innerHTML = "";
         activityFeed.appendChild(fragment);
@@ -210,17 +253,19 @@
       }
 
       function scheduleActivityUpdates() {
-        const delay = Math.floor(Math.random() * 3200) + 4800; // 4.8s - 8s
+        const delay = Math.floor(Math.random() * 2600) + 2400; // 2.4s - 5s
         setTimeout(() => {
           pushNewActivity();
           scheduleActivityUpdates();
         }, delay);
       }
 
-      seedActivity();
-      pushNewActivity(); // ensure fresh, fake activity appears immediately
-      scheduleActivityUpdates();
-      window.addEventListener("focus", seedActivity);
+      if (activityFeed) {
+        seedActivity();
+        pushNewActivity(); // ensure fresh, fake activity appears immediately
+        scheduleActivityUpdates();
+        window.addEventListener("focus", seedActivity);
+      }
     </script>
   </body>
 </html>
